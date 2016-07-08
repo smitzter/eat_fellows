@@ -1,6 +1,7 @@
 'use strict';
 // ++ Global Variables ++
 var typesOfFood = [];   //list which is generated to contain a list of every food category
+var allowClose = true;  //allow the flyout to auto-close
 
 var typeList = [];  //Array of Restaurant objs that meet search criteria by type
 var costList = [];  // Same for cost..etc.
@@ -19,7 +20,6 @@ var tooltips = []; //Array of infowindows to keep only 1 open
 var getRandom = document.getElementById('get_random');
 var showAll = document.getElementById('show_all');
 var flyoutMenu = document.getElementById('flyout');
-var allowClose = true;
 //++-------------++
 //++ Google maps ++
 function initMap() {
@@ -50,7 +50,6 @@ function buildMarkers(markerList) {
 
 //center map when code fellows logo clicked
   google.maps.event.addListener(cfmarker, 'click', function() {
-    console.log('cf clicked');
     centerMap();
   });
 
@@ -256,7 +255,7 @@ var removeStoredSelection = function() {
 // search event listeners
 function listenForEvents() {
   try {
-    toggler('active');  //Activate out flyout menu
+    toggler('active');  //Activate out flyout menu listeners
     activateMenu();
     allowClose = true;
     window.setTimeout(function() {
@@ -282,7 +281,6 @@ function listenForEvents() {
   } catch(error) {
   }
 }
-
 show_all.addEventListener('click', removeStoredSelection);
 
 //++-------------------------++
@@ -360,11 +358,6 @@ function insertSubStr(index, str, substr) {
     return str.slice(0, index) + substr + str.slice(index, str.length);
   }
 }
-
-// formats user input
-// function formatInputText(uinput) {
-// }
-
 //++-------------------------------++
 //++ Data manipulation/debug tools ++
 
@@ -388,7 +381,6 @@ function addTestRestaurant(name, types) {
 
 //++-------++
 // ++ Main ++
-// main program loop - step by step of program - should only be funcs in here
 function main() {
   initializeData();
   listenForEvents();
