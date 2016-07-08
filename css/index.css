@@ -1,4 +1,4 @@
-/*This is for the flyout menu styling*/
+/* flyout menu styling only */
 
 section {
   z-index: 1;
@@ -39,7 +39,6 @@ select {
   display: none;
   font-family: "Source Code Pro", monospace;
   color: #fff;
-  /*margin: 10px;*/
   padding: 30px 15px 10px 0;
 }
 

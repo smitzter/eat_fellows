@@ -1,17 +1,14 @@
-var restaurants = []; //Array of all restaurant objects,filled from localStorage or initial dataset
+var restaurants = [];
 
 function Restaurant(name, address, phone, type, vegan, image) {
   this.name = name;
   this.address = address;
   this.phone = phone;
-  this.type = type; // Array of types of food
-  this.vegan = vegan; //If it has KNOWN vegan options for an entree (sides don't count, it would suck if you were looking for a vegan place that only had a side of broccoli or something
-  //also, by default I am listing coffee joints as false for vegan, since I think vegan applies more towards food, and if they select coffee from search, vegan checkbox disappears
+  this.type = type;
+  this.vegan = vegan;
   this.image = image;
   this.reviews = [];
-  //to do:  add img property with img path for the restaurant;
 
-// Methods
   this.avgRating = function() {
     return getAverage(this.reviews, 'rating');
   };
@@ -29,7 +26,6 @@ function Restaurant(name, address, phone, type, vegan, image) {
 }
 
 function getAverage(ObjsToAvg, property) {
-// gets the average value from an array of objects(ObjsToAvg) with a property of interest
   var sum = 0;
   for (var i = 0; i < ObjsToAvg.length; i++) {
     sum += ObjsToAvg[i][property];

@@ -11,8 +11,6 @@ var ulEl = document.getElementById('user_reviews');
 var details = document.getElementById('details');
 var wholeList = document.getElementById('all_restaurants');
 var restList = document.getElementById('rest_list');
-
-// Reviews form variables
 var uname_r = document.getElementById('username');
 var fave_r = document.getElementById('fav_item');
 var code_r = document.getElementById('code_check');
@@ -23,7 +21,6 @@ var submit = document.getElementById('submitReviewBtn');
 var divAddNew = document.getElementById('add_new_review');
 
 function addNewRest(name, address, phone, types, vegan, image) {
-// Add a new restaurant to the database
   for (var i = 0; i < restaurants.length; i++) {
     if (phone === restaurants[i].phone) {
       alert('Somebody already added that place! Copycat.');
@@ -40,19 +37,16 @@ function addNewRest(name, address, phone, types, vegan, image) {
 }
 
 function addNewReview(restname, username, faveDish, code, cost, rating, comment) {
-// Add a new review to a restaurant
   newReview = new Review(username, faveDish, code, cost, rating, comment);
   matchSelectedRestwithObj(restname).reviews.push(newReview);
   localStorage.eatFellows = JSON.stringify(restaurants);
 }
 
-// Checks if a restaurant is in local storage.
 var checkLocalStorage = function() {
   if(localStorage.storedSelection) {
     details.style.display = 'block';
     reviews.style.display = 'block';
     selectedRest = JSON.parse(localStorage.storedSelection);
-    //re-attach lost methods from JSON strip
     selectedRest.avgRating = function() {
       return getAverage(this.reviews, 'rating');
     };
@@ -73,7 +67,6 @@ var checkLocalStorage = function() {
   }
 };
 
-// Builds an element and adds it to another element, attribute optional
 var buildNewElement = function(kind, content, where, attName, attValue) {
   var x = document.createElement(kind);
   x.innerHTML = content;
@@ -83,7 +76,6 @@ var buildNewElement = function(kind, content, where, attName, attValue) {
   where.appendChild(x);
 };
 
-// loads restaurant information into the DOM.
 var loadDetails = function() {
   var ratingGrades = ['Do Not Want.', 'Not Great', 'Alright.', 'Pretty Great.', 'This Joint Rocks!'];
   var costGrades = ['Cheap!', 'Reasonable.', 'Pricey.'];
@@ -115,7 +107,6 @@ var loadDetails = function() {
   }
 };
 
-// Displays all of the restaurants in the array as a formatted list.
 var showAllRestaurants = function() {
   restList.innerHTML = '';
   for(var i = 0; i < restaurants.length; i++) {
@@ -123,7 +114,6 @@ var showAllRestaurants = function() {
   }
 };
 
-// Add a selected restaurant to local storage and update the page
 var handleNewRest = function(event) {
   var clicked = event.target.name;
   console.log('clicked on:', clicked);
@@ -131,7 +121,6 @@ var handleNewRest = function(event) {
   main();
 };
 
-// Event listener to display a particular restaurant
 wholeList.addEventListener('click', handleNewRest);
 
 function matchSelectedRestwithObj(selection) {
