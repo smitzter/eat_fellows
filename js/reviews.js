@@ -1,7 +1,7 @@
 function Review(name, faveDish, code, cost, rating, comment) {
-  this.name = name; //name of reviewer
+  this.name = name;
   this.faveDish = faveDish;
-  this.code = code; //Good place to code?  0->no, 1->yes (so we can avg)
+  this.code = code; //0->no, 1->yes
   this.cost = cost; // 1: <=$8, 2: $8-$12,  3: >$12
   this.rating = rating; // 1 to 5, 5 is awesome
   this.comment = comment;

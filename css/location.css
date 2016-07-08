@@ -1,7 +1,4 @@
 /* LOCATION PAGE SPECIFIC STYLES GO HERE! */
-* {
-  /*outline: 1px dashed orange;*/
-}
 
 section {
   clear: both;
@@ -82,8 +79,6 @@ h3 {
 }
 
 form {
-  /*align-content: center;
-  text-align: center;*/
   margin: 0px 165px;
 }
 
@@ -93,10 +88,6 @@ fieldset {
 
 label {
   padding-right: 5px;
-}
-
-input {
-  
 }
 
 @keyframes hideDiv {
