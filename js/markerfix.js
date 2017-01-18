@@ -2,8 +2,9 @@
 // future: use # of markers to calc points on a circle and generate offsets list with trigonometry
 
 function offsetDuplicates(listOfMarkers) {
-  d = 0.00015; //Amount lat/lng to offset by
-  var offsets = [[d / 1.5, 0],[0, d],[-d / 1.5, 0],[0, -d],[d / 1.5, d],[-d / 1.5, d],[-d / 1.5, -d],[d / 1.5, -d]];
+  var d = 0.00015; //Amount lat/lng to offset by
+  var scale = 1.5;  //scale used to adjust difference between lat/long appearance on 2d map in WA
+  var offsets = [[d / scale, 0],[0, d],[-d / scale, 0],[0, -d],[d / scale, d],[-d / scale, d],[-d / scale, -d],[d / scale, -d]];
   var rMarkers = [];
   var newEntry = true;
   //create 2-d array of matching markerList marker indices

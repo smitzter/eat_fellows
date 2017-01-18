@@ -195,7 +195,7 @@ function sortByType(objList, type) {
   }
   return tmp;
 }
-//++-------------++
+// ++-------------++
 // ++ event handlers for search ++
 // input: value from webpage sorting elements after they change
 // output: updated matching array (no return)
